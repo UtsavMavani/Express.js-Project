@@ -237,6 +237,7 @@ footer p{
     }
     .home_right img{
         height: 100%;
+        margin: 1rem 0 1rem 0;
     }
 
     /* weather page */
