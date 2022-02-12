@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+</head>
+
+<body>
+
+    <!-- Header Content -->
+    {{>navbar}}
+
+    <!-- Main Content -->
+    <div class="container-fluid p-0 main_content">
+        <div class="row m-0">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <!-- left side -->
+                    <div class="col-md-7 col-12 main_content_left home_left">
+                        <p>Welcome To My Weather App</p>
+                        <h1>Get The Letest <span class="color_blue"> Weather </span> Info Of Your City</h1>
+                        <a href="/weather"><button class="btn btn-outline-primary"> Check Now </button></a>
+                    </div>
+
+                    <!-- right side -->
+                    <div class="col-md-5 col-12 main_content_right home_right">
+                        <img src="./Image/weather.png" class="img-fluid" alt="Weather Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Content-->
+    {{>footer}}
+
+</body>
+
+</html>

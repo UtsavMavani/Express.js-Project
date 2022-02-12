@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>head}}
+
+</head>
+
+<body>
+
+    <!-- Header Content -->
+    {{>navbar}}
+
+    <!-- Main Content -->
+    <div class="container-fluid p-0 main_content">
+        <div class="row m-0">
+            <div class="col-md-10 col-12 mx-auto">
+
+                    <div class="form">
+                        <form class="temp_form">
+                            <input type="text" name="cityName" id="cityName" placeholder="Enter Your City Name">
+                            <input type="submit" value="Search" class="btn btn-outline-primary btnsearch" id="searchButton">
+                        </form>
+                    </div>
+
+                    <div class="temp_info">
+                        <div class="top_layer">
+                            <p id="date"></p>
+                        </div>
+
+                        <div class="bottom_layer">
+                            <p id="location" class="location">Get output here...</p>
+                            <div class="temp_status">
+                                <p id="current_temp"></p>
+                                <p id="current_status"></p>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Content-->
+    {{>footer}}
+
+
+    <script>
+        const date = document.getElementById("date");
+
+        const getCurrentDateTime = () => {
+            let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sup", "Oct", "Nov", "Dec"];
+
+            let currentDate = new Date();
+
+            let day = weekdays[currentDate.getDay()];
+
+            let month = months[currentDate.getMonth()];
+            let date = currentDate.getDate();
+
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+
+            var periods = "AM"
+            if (hours > 11) {
+                periods = "PM";
+                if (hours > 12) {
+                    hours = hours - 12;
+                }
+            }
+
+            if (date < 10) {
+                date = "0" + date;
+            }
+
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            return `${day} | ${month} ${date} | ${hours} : ${minutes} : ${seconds} ${periods}`;
+        }
+
+        setInterval(() => {
+            date.innerHTML = getCurrentDateTime();
+        }, 1000);
+    </script>
+
+    <script src="JavaScript/main.js"></script>
+
+</body>
+
+</html>
